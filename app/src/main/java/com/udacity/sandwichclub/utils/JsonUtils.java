@@ -19,7 +19,6 @@ public class JsonUtils {
         Sandwich sandwich = new Sandwich();
         JSONObject sandwichJSonObject = new JSONObject(json);
 
-        System.out.println(sandwichJSonObject);
         JSONObject sandwichObject = sandwichJSonObject.getJSONObject("name");
         String sandwichName = sandwichObject.getString("mainName");
         if (!sandwichName.isEmpty())
