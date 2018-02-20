@@ -13,9 +13,6 @@
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
 
-    <!-- JSON Item Data empty value -->
-    <string name="emptyJSonValue">- - -</string>
-
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
         <item>Bosna</item>

@@ -19,33 +19,33 @@ public class JsonUtils {
         Sandwich sandwich = new Sandwich();
         JSONObject sandwichJSonObject = new JSONObject(json);
 
-        JSONObject sandwichObject = sandwichJSonObject.getJSONObject("name");
-        String sandwichName = sandwichObject.getString("mainName");
+        JSONObject sandwichObject = sandwichJSonObject.getJSONObject(JsonConstants.name);
+        String sandwichName = sandwichObject.optString(JsonConstants.mainName);
         if (!sandwichName.isEmpty())
             sandwich.setMainName(sandwichName);
 
-        String sandwichAlsoKnownAs = sandwichObject.getString("alsoKnownAs");
+        String sandwichAlsoKnownAs = sandwichObject.optString(JsonConstants.alsoKnowAs);
         List<String> sandwichAlsoKnownAsList = new ArrayList<>(Arrays.asList(sandwichAlsoKnownAs.split(",")));
         sandwich.setAlsoKnownAs(sandwichAlsoKnownAsList);
 
-        String sandwichDescription = sandwichJSonObject.getString("description");
+        String sandwichDescription = sandwichJSonObject.optString(JsonConstants.description);
         if (!sandwichDescription.isEmpty()) {
             sandwich.setDescription(sandwichDescription);
         } else {
-            sandwich.setDescription(String.valueOf(R.string.emptyJSonValue));
+            sandwich.setDescription(JsonConstants.emptyValue);
         }
-        String sandwichImage = sandwichJSonObject.getString("image");
+        String sandwichImage = sandwichJSonObject.optString(JsonConstants.image);
         if (!sandwichImage.isEmpty())
             sandwich.setImage(sandwichImage);
 
-        String sandwichPlaceOfOrigin = sandwichJSonObject.getString("placeOfOrigin");
+        String sandwichPlaceOfOrigin = sandwichJSonObject.optString(JsonConstants.placeOfOrigin);
         if (!sandwichPlaceOfOrigin.isEmpty()) {
             sandwich.setPlaceOfOrigin(sandwichPlaceOfOrigin);
         } else {
-            sandwich.setPlaceOfOrigin(String.valueOf(R.string.emptyJSonValue));
+            sandwich.setPlaceOfOrigin(JsonConstants.emptyValue);
         }
 
-        String sandwichIngredients = sandwichJSonObject.getString("ingredients");
+        String sandwichIngredients = sandwichJSonObject.optString(JsonConstants.ingredients);
         List<String> sandwichIngredientsList = new ArrayList<>(Arrays.asList(sandwichIngredients.split(",")));
         sandwich.setIngredients(sandwichIngredientsList);
         return sandwich;
